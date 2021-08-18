@@ -1,0 +1,67 @@
+<%- include('../includes/head.ejs') %>
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <h1>
+                <% if (editing) { %> Update
+                    <% } else { %>Add
+                        <% } %> Product</h1>
+            <form action="/admin/<% if (editing) { %>edit-product<% } else { %>add-product<% } %>" method="post" enctype="multipart/form-data">
+                <div class="fields">
+                    <div class="field half">
+                        <input type="text" name="title" id="title" placeholder="Book Name" value="<% if (editing) { %><%= product.title %><% } %>" required />
+                    </div>
+
+                    <div class="field half">
+                        <input type="text" name="author" id="author" placeholder="Author Name" value="<% if (editing) { %><%= product.author %><% } %>" required />
+                    </div>
+
+                    <div class="field half">
+                        <input type="number" name="price" id="price" step="0.01" value="<% if (editing) { %><%= product.price %><% } %>" placeholder="Price" required />
+                    </div>
+
+                    <div class="field half">
+                        <input type="text" name="description" id="description" rows="5" placeholder="Description" value="<% if (editing) { %><%= product.description %><% } %>" required/>
+                    </div>
+
+                    <!-- <div class="field half">
+                        <input type="text" name="imgUrl" id="imgUrl" value="<% if (editing) { %><%= product.imgUrl %><% } %>" placeholder="imgUrl" required />
+                    </div> -->
+
+                    <div class="form-control">
+                        <label for="image">Image</label>
+                        <input type="file" name="imagw" id="image">
+                    </div>
+
+                    <div class="field text-right">
+                        <ul class="actions">
+                            <% if(editing){ %>
+                                <input type="hidden" value="<%= product._id %>" name="productId">
+                                <% } %>
+                                    <li>
+                                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                        <input type="submit" value="<% if(editing) { %> Update Product <% } else { %> Add Product<% } %>" class="primary">
+                                    </li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <section>
+                <%- include('../includes/footer.ejs') %>
+        </div>
+    </footer>
+
+    </div>
+
+    <!-- Scripts -->
+
+    <%- include('../includes/scripts.ejs') %>
+        </body>
+
+        </html>

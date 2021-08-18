@@ -1,0 +1,108 @@
+<div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+    <!--left-fixed -navigation-->
+    <aside class="sidebar-left">
+        <nav class="navbar navbar-inverse">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h1><a class="navbar-brand" href="/admin"><span class="fa fa-area-chart"></span> GoodRead<span class="dashboard_text">goodreads.com</span></a></h1>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="sidebar-menu">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="treeview">
+                        <a href="/admin">
+                            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-edit"></i> <span>Products</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a href="/admin/add-product">
+                                    <i class="fa fa-angle-right"></i>Add Product
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/admin/products">
+                                    <i class="fa fa-angle-right"></i>View Product
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="header">Contacts</li>
+                    <li>
+                        <a href="/login">
+                            <i class="fa fa-user"></i> <span>Login</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/signup">
+                            <i class="fa fa-user-plus"></i> <span>sign up</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+    </aside>
+</div>
+<!--left-fixed -navigation-->
+
+<!-- header-starts -->
+<div class="sticky-header header-section ">
+    <div class="header-left">
+        <!--toggle button start-->
+        <button id="showLeftPush"><i class="fa fa-bars"></i></button>
+        <!--toggle button end-->
+
+        <!--notification menu end -->
+        <div class="clearfix"> </div>
+    </div>
+    <div class="header-right">
+
+        <div class="profile_details">
+            <ul>
+                <li class="dropdown profile_details_drop">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <div class="profile_img">
+                            <span class="prfil-img"><img src="/images/2.jpg" alt=""> </span>
+                            <div class="user-name">
+                                <p>Admin Name</p>
+                                <span>Administrator</span>
+                            </div>
+                            <i class="fa fa-angle-down lnr"></i>
+                            <i class="fa fa-angle-up lnr"></i>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu drp-mnu">
+                        <li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li>
+                        <li> <a href="#"><i class="fa fa-user"></i> My Account</a> </li>
+                        <li> <a href="#"><i class="fa fa-suitcase"></i> Profile</a> </li>
+                        <li>
+                            <form action="/logout" method="post">
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                <i class="fa fa-sign-out"></i>
+                                <button class="btn" type="submit">Logout</button>
+                            </form>
+                            </i>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <div class="clearfix"> </div>
+</div>
+<!-- //header-ends -->

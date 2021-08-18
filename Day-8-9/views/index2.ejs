@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>View Record</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <style type="text/css">
+        .wrapper {
+            width: 650px;
+            margin: 0 auto;
+        }
+        
+        .page-header h2 {
+            margin-top: 0;
+        }
+        
+        table tr td:last-child a {
+            margin-right: 15px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-header clearfix">
+                        <h2 class="pull-left">Students Details</h2>
+                        <a href="/add-student" class="btn btn-success pull-right">Add New Student</a>
+                    </div>
+
+                    <% if (db_rows_array.length >0){ %>
+                        <table class='table table-bordered table-striped'>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Enrollment no</th>
+                                    <th>Email</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(var i=0; i< db_rows_array.length; i++){ %>
+                                    <tr>
+                                        <td>
+                                            <%= db_rows_array[i].id %>
+                                        </td>
+                                        <td>
+                                            <%= db_rows_array[i].name %>
+                                        </td>
+                                        <td>
+                                            <%= db_rows_array[i].erno %>
+                                        </td>
+                                        <td>
+                                            <%= db_rows_array[i].email %>
+                                        </td>
+                                        <td>
+                                            <a href='/student/read/<%= db_rows_array[i].id %>' title='View Record' data-toggle='tooltip'>
+                                                <span class='glyphicon glyphicon-eye-open'></span>
+                                            </a>
+                                            <a href='/student/edit/<%= db_rows_array[i].id %>' title='Update Record' data-toggle='tooltip'>
+                                                <span class='glyphicon glyphicon-pencil'></span>
+                                            </a>
+                                            <a href='/student/delete/<%=db_rows_array[i].id %>' title='Delete Record' data-toggle='tooltip'>
+                                                <span class='glyphicon glyphicon-trash'></span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                            </tbody>
+                        </table>
+
+                        <% } else{ %>
+                            <p class='lead'><em>No records were found.</em></p>
+                            <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

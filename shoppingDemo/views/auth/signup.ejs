@@ -1,0 +1,77 @@
+<%- include('../includes/head.ejs') %>
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <h1>Sign up</h1>
+            <% if (errorMessage) { %>
+                <div>
+                    <%= errorMessage %>
+                </div>
+                <% } %>
+
+                    <form action="/signup" method="post">
+                        <div class="fields">
+                            <div class="field half">
+                                <input type="email" name="email" id="email" placeholder="Email" required />
+                            </div>
+
+                            <div class="field half">
+                                <select class="gender" required>
+                           <option value="">---Choose Gender---</option>
+                           <option value="male">Male</option>
+                           <option value="female">Female</option>
+                           <option value="other">Other</option>
+                        </select>
+                            </div>
+
+                            <div class="field half">
+                                <input type="password" name="password" id="password" placeholder="password" required />
+                            </div>
+
+                            <div class="field half">
+                                <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm password" />
+                            </div>
+
+                            <div class="field half">
+                                <div>
+                                    <input type="checkbox" id="checkbox-4">
+
+                                    <label for="checkbox-4">
+                                I agree with the <a href="/terms" target="_blank">Terms &amp; Conditions</a>
+                            </label>
+                                </div>
+                            </div>
+
+                            <div class="field half text-right">
+                                <ul class="actions">
+                                    <li>
+                                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                        <input type="submit" class="primary" value="Sign up">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="registration">
+                            Already have an account ?
+                            <a class="" href="/login"> Login to account </a>
+                        </div>
+                    </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <section>
+                <%- include('../includes/footer.ejs') %>
+        </div>
+    </footer>
+
+    </div>
+
+    <!-- Scripts -->
+
+    <%- include('../includes/scripts.ejs') %>
+        </body>
+
+        </html>

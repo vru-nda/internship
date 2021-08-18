@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Record</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        .wrapper {
+            width: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-header">
+                        <h2>Create Record</h2>
+                    </div>
+                    <p>Please fill this form and submit to add user record to the database.</p>
+
+                    <form action="/users/user-process" method="post">
+
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Password:</label>
+                            <input type="password" name="psw" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label> Address:</label>
+                            <textarea name="add" rows="3" cols="20" class="form-control"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label> Gender:</label>
+                            <input type="radio" name="sex" value="male" required/>male
+                            <input type="radio" name="sex" value="female" required/>Female
+                        </div>
+
+                        <input type="submit" class="btn btn-primary" value="Submit">
+                        <a href="/users" class="btn btn-default">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

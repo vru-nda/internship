@@ -1,0 +1,24 @@
+<% if(prods.length >0 ){ %>
+    <section class="tiles">
+        <% for(let product of prods ){ %>
+            <article class="style1">
+                <span class="image">
+                    <img src="<%= product.imgUrl %>" alt="" />
+                </span>
+                <a href="/products/<%= product._id %>">
+                    <h2>
+                        <%= product.title %>
+                    </h2>
+                    <p>$<strong> <%= product.price %></strong></p>
+                    <p><strong><%= product.author %></strong></p>
+                    <p>
+                        <%= product.description.substring(0,64) %>
+                    </p>
+                </a>
+            </article>
+            <% } %>
+    </section>
+
+    <% } else{ %>
+        <h2><em>No Products were found.</em></h2>
+        <% } %>

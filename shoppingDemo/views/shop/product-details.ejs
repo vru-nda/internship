@@ -1,0 +1,101 @@
+<%- include('../includes/head.ejs') %>
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <h1>
+                <%= product.title %><span class="pull-right"> ₹ <%= product.price %></span></h1>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-5">
+                        <img src="<%= product.imgUrl %>" class="img-fluid" alt="">
+                    </div>
+
+                    <div class="col-md-7">
+                        <h2>
+                            <%= product.author %>
+                        </h2>
+
+                        <p>
+                            <%= product.description %>
+                        </p>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <% if (isAuthenticated) { %>
+                                    <form action="/cart" method="POST">
+                                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                        <button class="primary" type="submit">Add to cart</button>
+                                        <input type="hidden" name="productId" value="<%= product._id %>">
+                                    </form>
+                                    <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <br>
+
+                <div class="container-fluid">
+                    <h2 class="h2">Similar Products</h2>
+
+                    <!-- Products -->
+                    <section class="tiles">
+                        <article class="style1">
+                            <span class="image">
+                            <img src="/images/product-1-720x480.jpg" alt="" />
+                        </span>
+                            <a href="/products">
+                                <h2>Lorem ipsum dolor sit amet, consectetur</h2>
+
+                                <p><del>₹19.00</del> <strong>₹19.00</strong></p>
+
+                                <p>Vestibulum id est eu felis vulputate hendrerit uspendisse dapibus turpis in </p>
+                            </a>
+                        </article>
+
+                        <article class="style2">
+                            <span class="image">
+                            <img src="/images/product-2-720x480.jpg" alt="" />
+                        </span>
+                            <a href="/products">
+                                <h2>Lorem ipsum dolor sit amet, consectetur</h2>
+
+                                <p><del>₹19.00</del> <strong>₹19.00</strong></p>
+
+                                <p>Vestibulum id est eu felis vulputate hendrerit uspendisse dapibus turpis in </p>
+                            </a>
+                        </article>
+
+                        <article class="style3">
+                            <span class="image">
+                            <img src="/images/product-6-720x480.jpg" alt="" />
+                        </span>
+                            <a href="/products">
+                                <h2>Lorem ipsum dolor sit amet, consectetur</h2>
+
+                                <p><del>₹19.00</del> <strong>₹19.00</strong></p>
+
+                                <p>Vestibulum id est eu felis vulputate hendrerit uspendisse dapibus turpis in </p>
+                            </a>
+                        </article>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <section>
+                <%- include('../includes/footer.ejs') %>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <%- include('../includes/scripts.ejs') %>
+
+        </body>
+
+        </html>

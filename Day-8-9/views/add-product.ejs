@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Record</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        .wrapper {
+            width: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-header">
+                        <h2>Create Record</h2>
+                    </div>
+                    <p>Please fill this form and submit to add Product record to the database.</p>
+
+                    <form action="/product-process" method="post">
+
+                        <div class="form-group">
+                            <label>Book Name</label>
+                            <input type="text" name="txt1" class="form-control" required/>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Author Name:</label>
+                            <input type="text" name="txt2" class="form-control" required/>
+                        </div>
+
+                        <div class="form-group">
+                            <label> Price :</label>
+                            <input type="number" name="txt3" class="form-control" required/>
+                        </div>
+
+                        <input type="submit" class="btn btn-primary" value="Submit">
+                        <a href="/" class="btn btn-default">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
